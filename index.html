@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City Dashboard</title>
+    <meta name="description" content="A responsive smart city dashboard featuring weather, currency, citizen profile, and city facts.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Smart City Dashboard</h1>
+        <p>Real-time insights at your fingertips</p>
+    </header>
+
+    <main class="dashboard-grid">
+        <!-- Weather Card -->
+        <div class="card glass">
+            <div class="card-header">
+                <h2><i class="fas fa-cloud-sun"></i> Weather</h2>
+                <button class="refresh-btn" onclick="refreshData(event, 'weather')" aria-label="Refresh Weather">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            <div class="card-body" id="weather-data">
+                <div class="data-primary">24°C</div>
+                <div class="data-secondary">Sunny, 45% Humidity</div>
+            </div>
+        </div>
+
+        <!-- Currency Card -->
+        <div class="card glass">
+            <div class="card-header">
+                <h2><i class="fas fa-chart-line"></i> Currency</h2>
+                <button class="refresh-btn" onclick="refreshData(event, 'currency')" aria-label="Refresh Currency">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            <div class="card-body" id="currency-data">
+                <div class="data-primary">1 USD = 83.2 INR</div>
+                <div class="data-secondary">Updated just now</div>
+            </div>
+        </div>
+
+        <!-- Citizen Profile Card -->
+        <div class="card glass">
+            <div class="card-header">
+                <h2><i class="fas fa-id-card"></i> Citizen Profile</h2>
+                <button class="refresh-btn" onclick="refreshData(event, 'citizen')" aria-label="Refresh Citizen">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            <div class="card-body" id="citizen-data">
+                <div class="data-primary">John Doe</div>
+                <div class="data-secondary">ID: SC-9012-44 | Status: Active</div>
+            </div>
+        </div>
+
+        <!-- City Fact Card -->
+        <div class="card glass">
+            <div class="card-header">
+                <h2><i class="fas fa-info-circle"></i> City Fact</h2>
+                <button class="refresh-btn" onclick="refreshData(event, 'fact')" aria-label="Refresh Fact">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            <div class="card-body" id="fact-data">
+                <div class="data-secondary fact-text">The city park covers over 500 acres and includes a botanical gardens.</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Chatbot capabilities -->
+    <div class="chatbot-container">
+        <div class="chat-window glass closed" id="chat-window">
+            <div class="chat-header">
+                <h3>City Assistant</h3>
+                <button class="close-btn" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">Hello! How can I help you with city services today?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+                <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-toggle-btn" onclick="toggleChat()" aria-label="Open Chat">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <script defer src="script.js"></script>
+</body>
+</html>
